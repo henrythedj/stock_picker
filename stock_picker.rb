@@ -4,7 +4,8 @@ name = gets.chomp
 puts "That actually doesn't matter"
 puts "Let's move on"
 #obtain the number of days tracked, up to 3 weeks (15 business days)
-puts "How many days have you tracked this stock? (non-zero # less than 15, please)" #limited to 14 for ease of use, no problems with numbers greater than 14
+puts "How many days have you tracked this stock? (non-zero # less than 14, please)" #limited to 14 for ease of use, no problems with numbers greater than 14
+puts "Note that 0 counts as a day, so if you enter '2', it will ask you for the price on day 0, 1, and 2"
 days = gets.strip.to_i
 	while days == 0 || days > 15
 		puts "I asked for a non-zero number less than 14. Try again!"
@@ -48,9 +49,7 @@ def stock_picker(price_array)
 		end
 		m += 1
 	end
-	puts most_profit
 	most_profit = most_profit*(-1)
-	puts most_profit
 	puts "The most profitable trade has been found"
 	puts "Buy on Day #{solution1} (price: $#{price_array[solution1]}) and sell on Day #{solution2} (price: $#{price_array[solution2]}) for a profit of #{most_profit}"
 	solution = [solution1, solution2, most_profit]
